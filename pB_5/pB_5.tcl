@@ -49,7 +49,7 @@ $ns flush-trace
 close $nf
 close $nt
 exec nam pB_5.nam &
-#exec awk -f pB_5.awk pB_5.tr &
+exec awk -f pB_5.awk pB_5.tr &
 exit 0
 }
 
