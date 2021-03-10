@@ -7,6 +7,7 @@ set nt [open pB_5.tr w]
 $ns trace-all $nt
 
 set n0 [$ns node]
+set n1 [$ns node]
 set n2 [$ns node]
 set n3 [$ns node]
 
@@ -24,7 +25,6 @@ Agent/TCP set packetSize_ 1000
 
 set ftp0 [new Application/FTP]
 $ftp0 attach-agent $tcp0
-
 
 set sink1 [new Agent/TCPSink]
 $ns attach-agent $n3 $sink1
@@ -48,8 +48,8 @@ exec nam pB_5.nam &
 exit 0
 }
 
-$ns at 0.75 "$ftp0 start"
 $ns at 0.5 "$telnet0 start"
+$ns at 0.75 "$ftp0 start"
 $ns at 4.5 "$telnet0 stop"
 $ns at 4.75 "$ftp0 stop"
 $ns at 5.0 "finish"
