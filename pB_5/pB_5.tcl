@@ -21,16 +21,21 @@ $ns queue-limit $n2 $n3 50
 
 set tcp0 [new Agent/TCP]
 $ns attach-agent $n0 $tcp0
-Agent/TCP set packetSize_ 1000
+
+set sink0 [new Agent/TCPSink]
+$ns attach-agent $n3 $sink0
+
+$ns connect $tcp0 $sink0
 
 set ftp0 [new Application/FTP]
 $ftp0 attach-agent $tcp0
-
-set sink1 [new Agent/TCPSink]
-$ns attach-agent $n3 $sink1
+Agent/TCP set packetSize_ 1000
 
 set tcp1 [new Agent/TCP]
 $ns attach-agent $n1 $tcp1
+
+set sink1 [new Agent/TCPSink]
+$ns attach-agent $n3 $sink1
 
 $ns connect $tcp1 $sink1
 
@@ -44,7 +49,7 @@ $ns flush-trace
 close $nf
 close $nt
 exec nam pB_5.nam &
-#exec awk -f pB_5.awk pB_5.tr &
+exec awk -f pB_5.awk pB_5.tr &
 exit 0
 }
 
