@@ -1,4 +1,4 @@
-#inlcude<stdlib.h>
+#include<stdlib.h>
 #include<stdio.h>
 #include<stdlib.h>
 char data[5];
@@ -50,5 +50,6 @@ int main()
             for(i=0;i<7;i++)
                 printf("%d",edata[i]);
         }
+	printf("\n");
         return 0;
 }

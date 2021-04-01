@@ -41,15 +41,11 @@ void rout_table()
     printf("\nEnter the routing table : \n");
     printf("\t|");
     for(i=1;i<=n;i++)
-    {
         printf("%c\t",i+96);
-        printf("\n");
-    }
+    printf("\n");
     for(i=0;i<=n;i++)
-    {
         printf("-------");
-        printf("\n");
-    }
+    printf("\n");
     for(i=0;i<n;i++)
     {
         printf("%c|",i+97);
